@@ -4,6 +4,9 @@ import RPi.GPIO as GPIO
 import time
 import threading
 import random
+import atexit
+
+atexit.register(GPIO.cleanup)
 
 class Light_controller:
 	def __init__(self):
@@ -58,9 +61,6 @@ class Light_controller:
 		self.light_stop.set()
 
 if __name__ == "__main__":
-	import atexit
-	atexit.register(GPIO.cleanup)
-
 	led_controller = Light_controller()
 	time.sleep(5)
 	print "change status to \"Test\""

@@ -43,14 +43,14 @@ class RGB_PWM:
 if __name__ == "__main__":
 	import time
 	import random
+	from config.config import Config
 
 	GPIO.setmode(GPIO.BOARD)
 
-	blue_pin, red_pin, green_pin = 32, 22, 12 
 	pwms = {
-		'blue': RGB_PWM(blue_pin, 0.7),
-		'red': RGB_PWM(red_pin, 1),
-		'green': RGB_PWM(green_pin, 0.09),
+		'blue': RGB_PWM(Config.blue_pin, 0.7),
+		'red': RGB_PWM(Config.red_pin, 1),
+		'green': RGB_PWM(Config.green_pin, 0.09),
 	}
 
 	pwms['blue'].turn_on()

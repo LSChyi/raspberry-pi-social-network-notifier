@@ -1,10 +1,9 @@
 from rgb_pwm import RGB_PWM
+from config.config import Config
 import RPi.GPIO as GPIO
 import time
 import threading
 import random
-
-blue_pin, red_pin, green_pin = 32, 22, 12 
 
 class Light_controller:
 	def __init__(self):
@@ -19,9 +18,9 @@ class Light_controller:
 
 		GPIO.setmode(GPIO.BOARD)
 		self.leds = {
-			'blue': RGB_PWM(blue_pin, 0.7),
-			'red': RGB_PWM(red_pin, 1),
-			'green': RGB_PWM(green_pin, 0.09),
+			'blue': RGB_PWM(Config.blue_pin, 0.7),
+			'red': RGB_PWM(Config.red_pin, 1),
+			'green': RGB_PWM(Config.green_pin, 0.09),
 		}
 
 		self.status = 'Normal'

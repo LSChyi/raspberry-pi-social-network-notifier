@@ -8,6 +8,7 @@ def connect_db():
 def query(query_str):
 	conn, curs = connect_db()
 	result = curs.execute(query_str).fetchall()
+	conn.commit()
 	conn.close()
 	return result
 

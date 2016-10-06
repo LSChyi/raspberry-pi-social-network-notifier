@@ -44,6 +44,10 @@ class Light_controller:
 			self.statuses[self.status].run()
 
 	def blink_mode(self, color, on_interval=0.5, off_interval=0.5):
+		self.leds['blue'].turn_off()
+		self.leds['red'].turn_off()
+		self.leds['green'].turn_off()
+
 		self.leds[color].turn_on()
 		time.sleep(on_interval)
 		self.leds[color].turn_off()
